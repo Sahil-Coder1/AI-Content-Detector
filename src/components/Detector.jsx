@@ -23,6 +23,7 @@ const Detector = () => {
                 setdisabled(false)
             })
     }
+    
     const handleDetect = () => {
         detect();
         setdisabled(true);
