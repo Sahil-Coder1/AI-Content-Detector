@@ -28,7 +28,7 @@ const Detector = () => {
         detect();
         setdisabled(true);
     }
-    
+
     return (
         <div>
             <div className='w-3/4 mx-auto'>
