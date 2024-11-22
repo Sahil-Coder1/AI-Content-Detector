@@ -23,11 +23,12 @@ const Detector = () => {
                 setdisabled(false)
             })
     }
-    
+
     const handleDetect = () => {
         detect();
         setdisabled(true);
     }
+    
     return (
         <div>
             <div className='w-3/4 mx-auto'>
