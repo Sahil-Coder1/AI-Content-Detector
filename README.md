@@ -35,4 +35,4 @@ To get started with the project locally:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/ai-content-detector.git
+   git clone https://github.com/Sahil-Coder1/AI-Content-Detector.git
