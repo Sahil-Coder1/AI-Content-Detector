@@ -6,7 +6,6 @@ import Detector from './components/Detector'
 function App() {
  return(
   <>
-  <Header />
   <Detector />
   </>
  ) 
