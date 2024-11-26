@@ -23,6 +23,8 @@ const Detector = () => {
       .then((response) => {
         setResp(response.data);
         setDisabled(false);
+        console.log(response.data);
+
       })
       .catch(() => {
         setResp(null);
@@ -38,50 +40,58 @@ const Detector = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-teal-100 to-blue-200 flex flex-col items-center py-12 px-6">
       {/* Header Section */}
-      <header className="text-center mb-12">
-        <h1 className="text-4xl md:text-5xl font-extrabold text-blue-700 animate__animated animate__fadeIn animate__delay-1s">
-          AI Content Detector
-        </h1>
-        <p className="text-gray-600 text-lg mt-3 max-w-lg mx-auto">
-          Analyze your text to determine the percentage of AI-generated and human-written content. Get insights with a click!
-        </p>
+      <header className="text-center mb-12 lg:flex">
+        {/* Illustration Section */}
+        <div className="max-w-lg mx-auto mb-8 animate__animated animate__fadeIn animate__delay-2s">
+          <img
+            src={bot}
+            alt="AI Detection Illustration"
+            className="lg:w-full mx-auto rounded-lg h-36"
+          />
+        </div>
+        <div>
+          <h1 className="text-4xl md:text-5xl font-extrabold text-blue-700 animate__animated animate__fadeIn animate__delay-1s">
+            AI Content Detector
+          </h1>
+          <p className="text-gray-600 text-lg mt-3 max-w-lg mx-auto">
+            Analyze your text to determine the percentage of AI-generated and human-written content. Get insights with a click!
+          </p>
+        </div>
       </header>
 
-      {/* Illustration Section */}
-      <div className="max-w-lg mx-auto mb-8 animate__animated animate__fadeIn animate__delay-2s">
-        <img
-          src={bot}
-          alt="AI Detection Illustration"
-          className="w-full rounded-lg h-36"
-        />
-      </div>
+
 
       {/* Textarea Section */}
-      <div className="w-full md:w-3/4 lg:w-2/3 bg-white shadow-xl rounded-xl p-8 mb-6 transition-all transform ">
-        <label htmlFor="message" className="block text-lg font-medium text-gray-700 mb-4">
+      <div className="w-full md:w-3/4 lg:w-2/3 bg-white shadow-xl rounded-xl px-8 py-4 mb-6 transition-all transform ">
+        <label htmlFor="message" className="block text-lg font-medium text-gray-700 mb-2">
           Enter Your Text
         </label>
         <textarea
           value={text}
           onChange={(e) => setText(e.target.value)}
           id="message"
-          rows="8"
+          rows="10"
           className="block w-full text-gray-800 bg-gray-50 rounded-lg p-4 border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all duration-200 ease-in-out"
-          placeholder="Write your thoughts here..."
+          placeholder="Write your text here..."
         ></textarea>
 
         {/* Response Section */}
         {resp && (
-          <div className="mt-6 bg-blue-50 border-l-4 border-blue-400 p-4 rounded-lg text-blue-800 transition-all duration-500 ease-in-out transform">
-            <p className="text-lg font-medium">
-              <span className="font-bold">AI Words Count:</span> {resp?.aiWords}
-            </p>
-            <p className="text-lg font-medium">
-              <span className="font-bold">Human:</span> {resp?.isHuman}%
-            </p>
-            <p className="text-lg font-medium">
-              <span className="font-bold">Fake Percentage:</span> {resp?.fakePercentage}%
-            </p>
+          <div className="mt-6 lg:flex justify-between bg-blue-50 border-l-4 border-blue-400 p-4 rounded-lg text-blue-800 transition-all duration-500 ease-in-out transform">
+            <div>
+              <p className="text-lg font-medium">
+                <span className="font-bold">AI Words Count:</span> {resp?.aiWords}
+              </p>
+              <p className="text-lg font-medium">
+                <span className="font-bold">Human:</span> {resp?.isHuman}%
+              </p>
+              <p className="text-lg font-medium">
+                <span className="font-bold">Fake Percentage:</span> {resp?.fakePercentage}%
+              </p>
+            </div>
+            <div className='text-center content-center text-red-500 lg:w-1/2 lg:mt-0 mt-4'>
+              {resp?.otherFeedback}
+            </div>
           </div>
         )}
 
@@ -89,9 +99,8 @@ const Detector = () => {
         <div className="mt-8 text-center">
           <button
             onClick={handleDetect}
-            className={`w-full md:w-auto px-10 py-3 text-lg font-semibold rounded-lg text-white bg-teal-600 hover:bg-teal-700 focus:ring-2 focus:ring-teal-400 transition-all duration-300 ${
-              disabled ? 'cursor-not-allowed opacity-50' : ''
-            }`}
+            className={`w-full md:w-auto px-10 py-3 text-lg font-semibold rounded-lg text-white bg-teal-600 hover:bg-teal-700 focus:ring-2 focus:ring-teal-400 transition-all duration-300 ${disabled ? 'cursor-not-allowed opacity-50' : ''
+              }`}
             disabled={disabled}
           >
             {disabled ? (
