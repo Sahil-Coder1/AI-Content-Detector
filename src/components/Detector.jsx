@@ -23,7 +23,6 @@ const Detector = () => {
       .then((response) => {
         setResp(response.data);
         setDisabled(false);
-        console.log(response.data);
 
       })
       .catch(() => {
