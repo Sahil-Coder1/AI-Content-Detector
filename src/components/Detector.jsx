@@ -38,9 +38,9 @@ const Detector = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-teal-100 to-blue-200 flex flex-col items-center py-12 px-6">
-      {/* Header Section */}
+
       <header className="text-center mb-12 lg:flex">
-        {/* Illustration Section */}
+
         <div className="max-w-lg mx-auto mb-8 animate__animated animate__fadeIn animate__delay-2s">
           <img
             src={bot}
@@ -58,9 +58,6 @@ const Detector = () => {
         </div>
       </header>
 
-
-
-      {/* Textarea Section */}
       <div className="w-full md:w-3/4 lg:w-2/3 bg-white shadow-xl rounded-xl px-8 py-4 mb-6 transition-all transform ">
         <label htmlFor="message" className="block text-lg font-medium text-gray-700 mb-2">
           Enter Your Text
@@ -74,7 +71,6 @@ const Detector = () => {
           placeholder="Write your text here..."
         ></textarea>
 
-        {/* Response Section */}
         {resp && (
           <div className="mt-6 lg:flex justify-between bg-blue-50 border-l-4 border-blue-400 p-4 rounded-lg text-blue-800 transition-all duration-500 ease-in-out transform">
             <div>
@@ -94,7 +90,6 @@ const Detector = () => {
           </div>
         )}
 
-        {/* Detect Button */}
         <div className="mt-8 text-center">
           <button
             onClick={handleDetect}
@@ -120,7 +115,7 @@ const Detector = () => {
                     fill="currentFill"
                   />
                 </svg>
-                <span>Loading...</span>
+                <span>Doing Magic ...</span>
               </div>
             ) : (
               'Detect'
